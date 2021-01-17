@@ -8,5 +8,5 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.listen(port, () => console.log(`Example app listening at port: ${port}`));
+app.listen(port, () => console.log(`App listening at port: ${port}`));
 
