@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <h1>Hard-Coded-Quiz</h1>
+    <p>Six multiple choice questions</p>
+    <div class="div_q1">
+        <h3>1) Represent the function below using arrow functions</h3>
+        <p>
+            <span class="reserved_func">function</span> (req, res) {<br/>
+            <span class="tab_space"></span>res.send("Hello World!");<br/>
+            }
+        </p>
+        <form action="">
+            <input type="radio" name="q1" value="one">
+            <label for="one">A. () => res.send("Hello World!");</label>
+            <br/>
+            <input type="radio" name="q1" value="two">
+            <label for="two">B. (req, res) => res.send("Hello World!");</label>
+            <br/>
+            <input type="radio" name="q1" value="three">
+            <label for="three">C. <span class="reserved_func">func</span> () => res.send("Hello World!");</label>
+            <br/>
+            <input type="radio" name="q1" value="four">
+            <label for="four">D. (req, res) <== res.send("Hello World!");</label>
+        </form>
+    </div>
+    <div class="div_q2">
+        <h3>2) True or false</h3>
+        <p>
+            Parentheses around parameters can be omitted for arrow functions requiring one argument
+        </p>
+        <form action="">
+            <input type="radio" name="q2" value="one">
+            <label for="one">A. True</label>
+            <br/>
+            <input type="radio" name="q2" value="two">
+            <label for="two">B. False</label>
+        </form>
+    </div>
+    <div class="div_q3">
+        <h3>3) Determine the proper way of representing the function below with arrow functions</h3>
+        <p>
+            <span class="reserved_let">let</span> newAlert = function () {<br/>
+            <span class="tab_space"></span>alert("New Alert!");<br/>
+            }
+        </p>
+        <form action="">
+            <input type="radio" name="q3" value="one">
+            <label for="one">A. () => res.send("Hello World!");</label>
+            <br/>
+            <input type="radio" name="q3" value="two">
+            <label for="two">B. <span class="reserved_let">let</span> newAlert = <span class="reserved_func">function</span> () { alert("New Alert!"); };</label>
+            <br/>
+            <input type="radio" name="q3" value="three">
+            <label for="three">C. <span class="reserved_let">let</span> newAlert = () => alert("New Alert!");</label>
+            <br/>
+            <input type="radio" name="q3" value="four">
+            <label for="four">D. Functions with no arguments cannot be represented with arrow functions</label>
+        </form>
+    </div>
+    <div class="div_q4">
+        <h3>4) Find the equivalent of this arrow function declaration</h3>
+        <p>
+            <span class="reserved_let">let</span> double = n => n * 2;
+        </p>
+        <form action="">
+            <input type="radio" name="q4" value="one">
+            <label for="one">A. () => res.send("Hello World!");</label>
+            <br/>
+            <input type="radio" name="q4" value="two">
+            <label for="two">B. <span class="reserved_let">let</span> double = <span class="reserved_func">function</span> () { return 1 * 2; };</label>
+            <br/>
+            <input type="radio" name="q4" value="three">
+            <label for="three">C. <span class="reserved_let">let</span> double = <span class="reserved_func">function</span> (n) { return n; };</label>
+            <br/>
+            <input type="radio" name="q4" value="four">
+            <label for="four">D. <span class="reserved_let">let</span> double = <span class="reserved_func">function</span> (n) { return n * 2; };</label>
+        </form>
+    </div>
+    <div class="div_q5">
+        <h3>5) Determine the nullish coalescing operator</h3>
+        <form action="">
+            <input type="radio" name="q5" value="one">
+            <label for="one">A. =></label>
+            <br/>
+            <input type="radio" name="q5" value="two">
+            <label for="two">B. ??</label>
+            <br/>
+            <input type="radio" name="q5" value="three">
+            <label for="three">C. !!</label>
+            <br/>
+            <input type="radio" name="q5" value="four">
+            <label for="four">D. ===</label>
+        </form>
+    </div>
+    <div class="div_q6">
+        <h3>6) Determine the function of the nullish coalescing operator</h3>
+        <form action="">
+            <input type="radio" name="q6" value="one">
+            <label for="one">A. Returns the first argument if the condition is true; otherwise, returns the second.</label>
+            <br/>
+            <input type="radio" name="q6" value="two">
+            <label for="two">B. An alternative to the ternary operator (?)</label>
+            <br/>
+            <input type="radio" name="q6" value="three">
+            <label for="three">C. Returns '??' if the first condition is met; otherwise, returns '?'.</label>
+            <br/>
+            <input type="radio" name="q6" value="four">
+            <label for="four">D. Returns the first argument if it is not null or undefined; otherwise, returns the second.</label>
+        </form>
+    </div>
+    <p>End of quiz.</p>
+
+    <div id="div_answerkey">
+        <h1>Answer Key</h1>
+        <p>1) B</p><br/>
+        <p>2) A</p><br/>
+        <p>3) C</p><br/>
+        <p>4) D</p><br/>
+        <p>5) B</p><br/>
+        <p>6) D</p>
+    </div>
+
+</body>
+
+</html>
