@@ -1,0 +1,38 @@
+#div_allQuestions {
+    margin: 10px;
+    border: 1px solid blue;
+}
+
+.div_question {
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.input_questionText {
+    width: 100%;
+    height: 50px;
+}
+
+.div_answer {
+    margin: 5px 0;
+}
+
+.div_answer:last-child {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.div_answer > * {
+    display: inline-block;
+}
+
+.input_radio {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.input_answerText {
+    width: calc(100% - 40px);
+}
