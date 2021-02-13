@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/write.css">
+    <title>Lab 5 Write</title>
+</head>
+<body>
+    <h1>Enter name and score</h1>
+    <!-- action="/COMP4537/labs/5/writeDB.html/" method="GET" -->
+    <form>
+        <div class="divInput" id="divName">
+            <label for="name">name: </label>
+            <input type="text" id="name" name="name" />
+        </div>
+        <div class="divInput" id="divScore">
+            <label for="score">score: </label>
+            <input type="number" id="score" name="score" />
+        </div>
+        <input type="submit" value="store in DB" onclick="onClickSubmit(event)" />
+    </form>
+    <div id="divLastMessage">
+        <p id="lastMessage"></p>
+    </div>
+    <script src="./scripts/write.js"></script>
+</body>
+</html>
