@@ -9,6 +9,8 @@ function readData() {
     // const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/";
     const partnerServer = "https://billyvunguyen.com/COMP4537/testLab5/";
 
+    document.getElementById("divRead").innerHTML = "<p>Loading data</p>";
+
     console.log("sending get request");
     xhttp.open("GET", crossOriginPrefix + partnerServer, true);
     xhttp.send();
@@ -19,6 +21,7 @@ function readData() {
             // document.getElementById("readText").innerHTML = xhttp.responseText;
             console.log("successful");
         } else {
+            document.getElementById("divRead").innerHTML = "<p>Failed to load data</p>";
             console.log("failed");
         }
     };
@@ -26,6 +29,10 @@ function readData() {
 
 function parseData(data) {
     let jsonArr = JSON.parse(data);
+    
+    // remove all children within div
+    document.getElementById("divRead").innerHTML = "";
+
     jsonArr.forEach((person) => {
         let newText = document.createElement("p");
         newText.innerHTML = person.name + ":" + person.score;
