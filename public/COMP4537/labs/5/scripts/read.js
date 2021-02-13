@@ -1,8 +1,10 @@
 window.onLoad = readData();
 
 function readData() {
+    console.log("reading data");
     const xhttp = new XMLHttpRequest();
 
+    console.log("sending get request");
     xhttp.open("GET", "https://billyvunguyen.com/COMP4537/labs/5/", true);
     xhttp.send();
     xhttp.onreadystatechange = () => {
