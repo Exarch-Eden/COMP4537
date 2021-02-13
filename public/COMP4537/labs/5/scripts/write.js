@@ -8,7 +8,7 @@ function writeData(name, score) {
 
     const google = "https://google.ca/";
 
-    xhttp.open("GET", partnerServer);
+    xhttp.open("GET", crossOriginPrefix + partnerServer);
     xhttp.send();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
