@@ -1,7 +1,9 @@
 function writeData(name, score) {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score, true);
+    const crossOrigin = "https://limitless-depths-77398.herokuapp.com/";
+
+    xhttp.open("GET", crossOrigin + "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score, true);
     xhttp.send();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
