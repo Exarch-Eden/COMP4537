@@ -4,8 +4,8 @@ function writeData(name, score) {
     const crossOriginPrefix = "https://limitless-depths-77398.herokuapp.com/";
     // const crossOriginPrefix = "https://cors-anywhere.herokuapp.com/";
 
-    // const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score;
-    const partnerServer = "https://billyvunguyen.com/COMP4537/testLab5/?name=" + name + "&" + "score=" + score;
+    const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score;
+    // const partnerServer = "https://billyvunguyen.com/COMP4537/testLab5/?name=" + name + "&" + "score=" + score;
 
     const google = "https://google.ca/";
 
