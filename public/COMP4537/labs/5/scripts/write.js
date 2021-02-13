@@ -5,7 +5,7 @@ function writeData(name, score) {
     // const crossOriginPrefix = "https://cors-anywhere.herokuapp.com/";
 
     // const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score;
-    const partnerServer = "billyvunguyen.com/COMP4537/testLab5/?name=" + name + "&" + "score=" + score;
+    const partnerServer = "https://billyvunguyen.com/COMP4537/testLab5/?name=" + name + "&" + "score=" + score;
 
     const google = "https://google.ca/";
 
@@ -31,5 +31,9 @@ function onClickSubmit(e) {
     const name = document.getElementById("name").value;
     const score = document.getElementById("score").value;
 
-    writeData(name, score);
+    if (name == "" || name === undefined || score == "" || score === undefined) {
+        return;
+    } else {
+        writeData(name, score);
+    }
 }
