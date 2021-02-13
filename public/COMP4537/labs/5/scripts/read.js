@@ -15,10 +15,20 @@ function readData() {
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
-            document.getElementById("readText").innerHTML = xhttp.responseText;
+            parseData(xhttp.responseText);
+            // document.getElementById("readText").innerHTML = xhttp.responseText;
             console.log("successful");
         } else {
             console.log("failed");
         }
     };
+}
+
+function parseData(data) {
+    let jsonArr = JSON.parse(data);
+    jsonArr.forEach((person) => {
+        let newText = document.createElement("p");
+        newText.innerHTML = person.name + ":" + person.score;
+        document.getElementById("divRead").appendChild(newText);
+    });
 }
