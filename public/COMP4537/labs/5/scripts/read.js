@@ -14,6 +14,7 @@ function readData() {
     xhttp.send();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
             document.getElementById("readText").innerHTML = xhttp.responseText;
             console.log("successful");
         } else {
