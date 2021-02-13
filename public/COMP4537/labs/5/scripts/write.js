@@ -1,9 +1,14 @@
 function writeData(name, score) {
     const xhttp = new XMLHttpRequest();
 
-    const crossOrigin = "https://limitless-depths-77398.herokuapp.com/";
+    const crossOriginPrefix = "https://limitless-depths-77398.herokuapp.com/";
+    // const crossOriginPrefix = "https://cors-anywhere.herokuapp.com/";
 
-    xhttp.open("GET", crossOrigin + "https://billyvunguyen.com/COMP4537/labs/5/?name=" + name + "&" + "score=" + score, true);
+    const partnerServer = "https://billyvunguyen.com:8000/COMP4537/labs/5/?name=" + name + "&" + "score=" + score;
+
+    const google = "https://google.ca/";
+
+    xhttp.open("GET", crossOriginPrefix + partnerServer);
     xhttp.send();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
