@@ -6,7 +6,8 @@ function readData() {
 
     const crossOriginPrefix = "https://limitless-depths-77398.herokuapp.com/";
 
-    const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/";
+    // const partnerServer = "https://billyvunguyen.com/COMP4537/labs/5/";
+    const partnerServer = "https://billyvunguyen.com/COMP4537/testLab5/";
 
     console.log("sending get request");
     xhttp.open("GET", crossOriginPrefix + partnerServer, true);
