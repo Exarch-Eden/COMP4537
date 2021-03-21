@@ -30,6 +30,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Content-Type, Authorization, Content-Length, X-Requested-With"
   );
+  next();
 });
 
 // LOCAL DATABASE:
