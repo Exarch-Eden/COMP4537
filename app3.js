@@ -41,7 +41,8 @@ app.use((req, res, next) => {
 //   database: "assignment1",
 // });
 
-const CLEARDB_DATABASE_URL = "mysql://b321f7db97ad5d:edfd3381@us-cdbr-east-03.cleardb.com/heroku_e5d6a32740d847b?reconnect=true";
+const CLEARDB_DATABASE_URL =
+  "mysql://b321f7db97ad5d:edfd3381@us-cdbr-east-03.cleardb.com/heroku_e5d6a32740d847b?reconnect=true";
 
 // HEROKU DATABASE:
 const con = mysql.createPool({
@@ -194,7 +195,7 @@ app.get("/questions", (req, res) => {
     console.log(questions);
 
     console.log("questions[0].choices");
-    console.log(questions[0].choices);
+    if (questions.length > 0) console.log(questions[0].choices);
 
     console.log("finished all queries in GET method");
     // res.writeHead(okCode, {
@@ -277,7 +278,7 @@ app.post("/questions", function (req, res) {
     const createdQuestion = {
       qBody: qBody,
       choices: choices,
-      questionId: question_id
+      questionId: question_id,
     };
 
     res.json(createdQuestion);
