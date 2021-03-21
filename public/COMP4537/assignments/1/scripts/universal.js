@@ -142,8 +142,12 @@ const renderNewQuestion = (question, questionNum, isStudent) => {
         choiceIndex < question.choices.length;
         choiceIndex++
       ) {
-        const choiceRadio = document.getElementById(questionChoiceRadio(questionNum, choiceIndex));
-        const choiceInput = document.getElementById(questionChoiceInput(questionNum, choiceIndex));
+        const choiceRadio = document.getElementById(
+          questionChoiceRadio(questionNum, choiceIndex)
+        );
+        const choiceInput = document.getElementById(
+          questionChoiceInput(questionNum, choiceIndex)
+        );
         choices[choiceIndex] = {
           isAnswer: choiceRadio.checked,
           text: choiceInput.value,
@@ -170,12 +174,13 @@ const readData = () => {
   // local
   const localUrl = "http://localhost:8000/questions";
   // heroku
-  const herokuUrl = "https://kentc.herokuapp.com/questions"; 
+  const herokuUrl = "https://kentc.herokuapp.com/questions";
 
   const url = herokuUrl;
 
   const studentUrl =
     "https://kentc.herokuapp.com/COMP4537/assignments/1/student.html";
+    // "http://localhost:8000/COMP4537/assignments/1/student.html";
 
   const isStudent = window.location.href === studentUrl ? true : false;
 
@@ -208,6 +213,21 @@ const readData = () => {
           responseText[i].qBody,
           responseText[i].choices
         );
+
+        if (isStudent) {
+          // store correct answers in answers array
+          // through radio input id
+          for (let choiceIndex = 0; choiceIndex < responseText[i].choices.length; choiceIndex++) {
+            const curChoice = responseText[i].choices[choiceIndex];
+            console.log("curChoice:");
+            console.log(curChoice);
+            if (curChoice.isAnswer) {
+              answers[i] = questionChoiceRadio(responseText[i].id, choiceIndex);
+              // answer has been found; break out of for loop
+              break;
+            }
+          }
+        }
 
         renderNewQuestion(curQuestion, responseText[i].id, isStudent);
       }

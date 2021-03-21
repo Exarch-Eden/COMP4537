@@ -41,6 +41,11 @@ app.use((req, res, next) => {
 //   database: "assignment1",
 // });
 
+// con.connect((err) => {
+//   if (err) throw err;
+//   console.log("Connected to SQL database!");
+// });
+
 const CLEARDB_DATABASE_URL =
   "mysql://b321f7db97ad5d:edfd3381@us-cdbr-east-03.cleardb.com/heroku_e5d6a32740d847b?reconnect=true";
 
@@ -117,6 +122,14 @@ app.use(express.static("public"));
 app.get("/COMP4537/labs/4/getDate/", (req, res) => {
   date_server.date_server(req, res);
 });
+
+// app.get("/answers", (req, res) => {
+//   (async () => {
+//     console.log("inside app.js GET answers method");
+
+//     const 
+//   })();
+// })
 
 // GET questions from database
 app.get("/questions", (req, res) => {
