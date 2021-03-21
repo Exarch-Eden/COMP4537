@@ -167,10 +167,15 @@ const renderNewQuestion = (question, questionNum, isStudent) => {
 const readData = () => {
   const xhttp = new XMLHttpRequest();
 
-  const url = "http://localhost:8000/questions";
+  // local
+  const localUrl = "http://localhost:8000/questions";
+  // heroku
+  const herokuUrl = "https://kentc.herokuapp.com/questions"; 
+
+  const url = herokuUrl;
 
   const studentUrl =
-    "http://localhost:8000/COMP4537/assignments/1/student.html";
+    "https://kentc.herokuapp.com/COMP4537/assignments/1/student.html";
 
   const isStudent = window.location.href === studentUrl ? true : false;
 

@@ -203,9 +203,7 @@ const addNewQuestion = () => {
       newQuestionChoiceRadioId + i.toString()
     ).checked = false;
 
-    document.getElementById(
-      newQuestionChoiceInputId + i.toString()
-    ).value = "";
+    document.getElementById(newQuestionChoiceInputId + i.toString()).value = "";
 
     // remove choices if number of choices are greater than the minimum amount
     if (i > 2) {
@@ -220,7 +218,12 @@ const addNewQuestion = () => {
 const writeData = (question) => {
   const xhttp = new XMLHttpRequest();
 
-  const url = "http://localhost:8000/questions";
+  // local
+  const localUrl = "http://localhost:8000/questions";
+  // heroku
+  const herokuUrl = "https://kentc.herokuapp.com/questions";
+
+  const url = herokuUrl;
 
   xhttp.open("POST", url, true);
 
@@ -251,8 +254,13 @@ const writeData = (question) => {
 
 const updateData = (question) => {
   const xhttp = new XMLHttpRequest();
+  
+  // local
+  const localUrl = "http://localhost:8000/questions";
+  // heroku
+  const herokuUrl = "https://kentc.herokuapp.com/questions";
 
-  const url = "http://localhost:8000/questions";
+  const url = herokuUrl;
 
   xhttp.open("PUT", url, true);
 
