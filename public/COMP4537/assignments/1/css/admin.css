@@ -1,0 +1,17 @@
+#newQuestionForm {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+#questionsContainer {
+    border: 1px solid brown;
+    margin: 5px;
+    padding: 5px;
+}
+
+#addChoiceButton {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

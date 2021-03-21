@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 Admin</title>
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <p>New Question Form:</p>
+    <form id="newQuestionForm">
+        <input id="newQuestionBody" class="questionInput questionBody" form="newQuestionForm" />
+        <!-- <div id="newQuestionChoicesContainer"></div> -->
+            <div id="newQuestionChoiceContainer1">
+                <input id="newQuestionChoiceRadio1" class="questionRadio" type="radio" name="newQuestionRadio" form="newQuestionForm" />
+                <input id="newquestionChoiceInput1" class="questionInput" form="newQuestionForm" />
+                <button id="removeChoiceButton1" type="button" onclick="removeChoice()">-</button>
+            </div>
+            <div id="newQuestionChoiceContainer2">
+                <input id="newQuestionChoiceRadio2" class="questionRadio" type="radio" name="newQuestionRadio" form="newQuestionForm" />
+                <input id="newquestionChoiceInput2" class="questionInput" form="newQuestionForm" />
+                <button id="removeChoiceButton2" type="button" onclick="removeChoice()">-</button>
+            </div>
+            <button id="addChoiceButton" type="button" onclick="addChoice()">+</button>
+        <!-- </div> -->
+        <button id="addQuestionButton" type="button" onclick="addNewQuestion()">Add Question</button>
+    </form>
+
+    <p>Existing Questions: </p>
+    <div id="questionsContainer"></div>
+
+
+    <!-- <button id="saveButton" type="button" onclick="saveToDatabase()">Save to Database</button> -->
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">Back To Index</button>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/admin.js"></script>
+    <script src="./scripts/universal.js"></script>
+    <script src="./scripts/getters.js"></script>
+</body>
+</html>
