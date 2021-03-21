@@ -43,7 +43,7 @@ app.use(express.json());
 const CLEARDB_DATABASE_URL = "mysql://b321f7db97ad5d:edfd3381@us-cdbr-east-03.cleardb.com/heroku_e5d6a32740d847b?reconnect=true";
 
 // HEROKU DATABASE:
-const con = mysql.createConnection({
+const con = mysql.createPool({
   host: "us-cdbr-east-03.cleardb.com",
   user: "b321f7db97ad5d",
   password: "edfd3381",
