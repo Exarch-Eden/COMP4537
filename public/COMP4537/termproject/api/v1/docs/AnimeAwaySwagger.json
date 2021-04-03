@@ -8,6 +8,9 @@
   "servers": [
     {
       "url": "https://kentc.herokuapp.com/COMP4537/termproject/api/v1/docs/"
+    },
+    {
+      "url": "http://kentc.herokuapp.com/COMP4537/termproject/api/v1/docs/"
     }
   ],
   "tags": [
