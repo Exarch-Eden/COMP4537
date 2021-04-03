@@ -7,10 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://billyvunguyen.com/AnimeAway/v1/doc"
-    },
-    {
-      "url": "http://billyvunguyen.com/AnimeAway/v1/doc"
+      "url": "https://kentc.herokuapp.com/COMP4537/termproject/api/v1/docs/"
     }
   ],
   "tags": [
