@@ -1,0 +1,563 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Anime Away",
+    "description": "This is the AnimeAway API official document for COMP 4537 Final Project. \n<i>Made by Billy & Kent.</i>",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://billyvunguyen.com/AnimeAway/v1/doc"
+    },
+    {
+      "url": "http://billyvunguyen.com/AnimeAway/v1/doc"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user_admin",
+      "description": "For admin's login"
+    },
+    {
+      "name": "anime_cartoon",
+      "description": "Anime/Cartoon"
+    },
+    {
+      "name": "manga_comic",
+      "description": "Manga/Comic"
+    },
+    {
+      "name": "quote",
+      "description": "Randomly generated quote per reload"
+    },
+    {
+      "name": "uri_status",
+      "description": "For Admin page, the status of all the URIs"
+    }
+  ],
+  "paths": {
+    "/user_admin/login": {
+      "post": {
+        "tags": [
+          "user_admin"
+        ],
+        "summary": "Logs user admin into the system",
+        "operationId": "loginUser",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "User email address for login",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "user_admin object",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {}
+          },
+          "400": {
+            "description": "Invalid email address/password.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/anime_cartoon": {
+      "get": {
+        "tags": [
+          "anime_cartoon"
+        ],
+        "summary": "Get anime/cartoon list from database",
+        "operationId": "getAnimeList",
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnimeCartoon"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "anime_cartoon"
+        ],
+        "summary": "Create an manga/comic post",
+        "operationId": "createAnimePost",
+        "parameters": [
+          {
+            "name": "Anime/Cartoon name",
+            "in": "query",
+            "description": "the name of the Anime/Cartoon",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Your favorite character",
+            "in": "query",
+            "description": "Your favorite character in the Anime/Cartoon",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Comment",
+            "in": "query",
+            "description": "Your opinion on the Anime/Cartoon",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Posted by",
+            "in": "query",
+            "description": "Your name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "anime_cartoon object",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/AnimeCartoon"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Post created.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/anime_cartoon/{anime_id}": {
+      "put": {
+        "tags": [
+          "anime_cartoon"
+        ],
+        "summary": "Update an Anime/Cartoon post",
+        "operationId": "updateAnimePost",
+        "parameters": [
+          {
+            "name": "anime_id",
+            "in": "path",
+            "description": "id of the Anime/Cartoon post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update OK.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "anime_cartoon"
+        ],
+        "summary": "Delete an Anime/Cartoon post",
+        "operationId": "deleteAnimePost",
+        "parameters": [
+          {
+            "name": "anime_id",
+            "in": "path",
+            "description": "id of the Anime/Cartoon post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete OK.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/manga_comic": {
+      "get": {
+        "tags": [
+          "manga_comic"
+        ],
+        "summary": "Get manga/comic list from database",
+        "operationId": "getMangaList",
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaComic"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "manga_comic"
+        ],
+        "summary": "Create a manga/comic post",
+        "operationId": "createMangaPost",
+        "parameters": [
+          {
+            "name": "Manga/Comic name",
+            "in": "query",
+            "description": "the name of the Manga/Comic",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Your favorite character",
+            "in": "query",
+            "description": "Your favorite character in the Manga/Comic",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Comment",
+            "in": "query",
+            "description": "Your opinion on the Manga/Comic",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Posted by",
+            "in": "query",
+            "description": "Your name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "manga_comic object",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/MangaComic"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Post created.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/manga_comic/{manga_id}": {
+      "put": {
+        "tags": [
+          "manga_comic"
+        ],
+        "summary": "Update a Manga/Comic post",
+        "operationId": "updateMangaPost",
+        "parameters": [
+          {
+            "name": "manga_id",
+            "in": "path",
+            "description": "id of the Manga/Comic post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update OK.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "manga_comic"
+        ],
+        "summary": "Delete a Manga/Comic post",
+        "operationId": "deleteMangaPost",
+        "parameters": [
+          {
+            "name": "manga_id",
+            "in": "path",
+            "description": "id of the Manga/Comic post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete OK.",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/quote/{quote_id}": {
+      "get": {
+        "tags": [
+          "quote"
+        ],
+        "summary": "Get a random quote from database",
+        "operationId": "getRandomQuote",
+        "parameters": [
+          {
+            "name": "quote_id",
+            "in": "path",
+            "description": "id of the quote",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/uri_status": {
+      "get": {
+        "tags": [
+          "uri_status"
+        ],
+        "summary": "Get the status of all the URIs",
+        "operationId": "getURIStatus",
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/URIStatus"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid API Key.",
+            "content": {}
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "AnimeCartoon": {
+        "type": "object",
+        "properties": {
+          "anime_id": {
+            "type": "integer"
+          },
+          "anime_name": {
+            "type": "string"
+          },
+          "fav_char": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "posted_by": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "AnimeCartoon"
+        }
+      },
+      "MangaComic": {
+        "type": "object",
+        "properties": {
+          "manga_id": {
+            "type": "integer"
+          },
+          "manga_name": {
+            "type": "string"
+          },
+          "fav_char": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "posted_by": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "MangaComic"
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "quote_id": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "quote_by": {
+            "type": "string"
+          },
+          "quote_from": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Quote"
+        }
+      },
+      "URIStatus": {
+        "type": "object",
+        "properties": {
+          "stat_id": {
+            "type": "integer"
+          },
+          "method": {
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "requests": {
+            "type": "integer"
+          }
+        },
+        "xml": {
+          "name": "URIStatus"
+        }
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
