@@ -1,6 +1,9 @@
 // api key
 const apiKey = "2621c1e4-6c9a-4d96-b9f6-8d734c115da2";
 
+// CORS proxy link
+const crossOriginPrefix = "https://limitless-depths-77398.herokuapp.com/";
+
 // the base link for API calls
 const baseAPILink = "https://billyvunguyen.com/AnimeAway/v1/";
 
@@ -53,8 +56,8 @@ const getUri = () => {
 
   const xhttp = new XMLHttpRequest();
 
-  const url = baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
-  console.log(`link: ${url}`);
+  const url = crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
+  console.log(`link: \n${url}`);
 
   xhttp.open(GET, url, true);
 
