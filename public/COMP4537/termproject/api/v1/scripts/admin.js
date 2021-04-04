@@ -61,7 +61,7 @@ const getUri = async () => {
     crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
   console.log(`link: \n${url}`);
 
-  const response = await new Promise((resolve) => {
+  const response = new Promise((resolve) => {
     const xhttp = new XMLHttpRequest();
 
     xhttp.open(GET, url, true);
