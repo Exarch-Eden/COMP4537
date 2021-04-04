@@ -135,7 +135,8 @@ const getUri = async () => {
   console.log("awaiting uriData");
   uriData = await makeRequest(GET, url);
 
-  console.log(`uriData: \n${uriData}`);
+  console.log(`uriData:`);
+  console.log(uriData);
 
   console.log("end of getUri()");
 
@@ -154,7 +155,7 @@ const makeRequest = (method, url) => {
       const status = xhttp.status;
       console.log(`status: ${status}`);
       if (status === STATUS_200) {
-        resolve(xhttp.JSON.parse(responseText));
+        resolve(JSON.parse(xhttp.responseText));
       } else {
         console.log("An error occured while attempting to read data");
         reject(status);
