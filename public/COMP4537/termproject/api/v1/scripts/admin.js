@@ -40,7 +40,7 @@ window.onload = () => {
   renderUri();
 };
 
-const renderUri = () => {
+const renderUri = async () => {
   // container for the uri table
   const uriContainer = document.getElementById(uriStatusContainerId);
 
@@ -48,7 +48,7 @@ const renderUri = () => {
   const uriTable = document.createElement(CREATE_TABLE);
 
   // execute GET method to grab the URI statuses from database
-  const uriData = getUri();
+  const uriData = await getUri();
 
   console.log("uriData in renderUri()");
 
