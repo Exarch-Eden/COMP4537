@@ -154,7 +154,7 @@ const makeRequest = (method, url) => {
       const status = xhttp.status;
       console.log(`status: ${status}`);
       if (status === STATUS_200) {
-        resolve(xhttp.responseText);
+        resolve(xhttp.JSON.parse(responseText));
       } else {
         console.log("An error occured while attempting to read data");
         reject(status);
