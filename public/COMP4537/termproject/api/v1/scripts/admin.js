@@ -24,6 +24,9 @@ const PUT = "PUT";
 const UPDATE = "UPDATE";
 const DELETE = "DELETE";
 
+// status code constants
+const STATUS_200 = 200;
+
 // the maximum possible number of URIs
 const MAX_URIS = 10;
 
@@ -39,7 +42,7 @@ const renderUri = () => {
   const uriList = document.createElement(CREATE_UL);
 
   // execute GET method to grab the URI statuses from database
-  const uriData = getUri();
+  const uriData = await getUri();
 
   // put data into unordered list
   for (let i = 0; i < MAX_URIS; i++) {
@@ -49,33 +52,71 @@ const renderUri = () => {
   }
 
   uriContainer.appendChild(uriList);
-}
+};
 
-const getUri = () => {
-  const uriData = {};
+const getUri = async () => {
+  const uriData = [];
 
-  const xhttp = new XMLHttpRequest();
-
-  const url = crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
+  const url =
+    crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
   console.log(`link: \n${url}`);
 
-  xhttp.open(GET, url, true);
+  const response = await new Promise((resolve) => {
+    const xhttp = new XMLHttpRequest();
 
-  xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.open(GET, url, true);
 
-  xhttp.send();
+    xhttp.setRequestHeader("Content-Type", "application/json");
 
-  xhttp.onreadystatechange = () => {
-    if (xhttp.readyState === 4 && xhttp.status === 200) {
-      console.log("finished reading data");
+    // (async () => {
+    // xhttp.send();
 
-      console.log(`responseText: \n${xhttp.responseText}`);
-    } else {
-      console.log("not finished reading data");
-    }
-  }
+    xhttp.onload = () => {
+      const status = xhttp.status;
+      console.log(`status: ${status}`);
+      if (status === STATUS_200) {
+        resolve(xhttp.responseText);
+      } else {
+        console.log("An error occured while attempting to read data");
+        reject(status);
+      }
+    };
+
+    // xhttp.onerror = () => {};
+
+    xhttp.send();
+
+    // xhttp.onreadystatechange = () => {
+    //   // try {
+    //   //   // while not ready and status is not OK (200)
+    //   //   while (!(xhttp.readyState === 4 && xhttp.status === STATUS_200)) {
+    //   //     console.log("not finished reading data");
+    //   //   }
+
+    //   //   console.log("await");
+
+    //   if (xhttp.readyState === 4 && xhttp.status === 200) {
+    //     console.log("finished reading data");
+
+    //     console.log(`responseText: \n${xhttp.responseText}`);
+    //   } else {
+    //     console.log("not finished reading data");
+    //   }
+    //   // } catch (err) {
+    //   //   console.log("An error occured while attempting to read data");
+    //   //   console.log(err);
+    //   // }
+    // };
+  });
+
+  console.log("awaiting uriData");
+  uriData = await response();
+
+  console.log(`uriData: \n${uriData}`);
+
+  // })();
 
   console.log("end of getUri()");
 
   return uriData;
-}
+};
