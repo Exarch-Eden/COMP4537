@@ -50,6 +50,10 @@ const renderUri = () => {
   // execute GET method to grab the URI statuses from database
   const uriData = getUri();
 
+  console.log("uriData in renderUri()");
+
+  console.log(uriData);
+
   const rowHeaders = document.createElement(CREATE_TR);
 
   // add the column headers of the table
