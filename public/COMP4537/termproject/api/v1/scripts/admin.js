@@ -42,7 +42,7 @@ const renderUri = () => {
   const uriList = document.createElement(CREATE_UL);
 
   // execute GET method to grab the URI statuses from database
-  const uriData = await getUri();
+  const uriData = getUri();
 
   // put data into unordered list
   for (let i = 0; i < MAX_URIS; i++) {
