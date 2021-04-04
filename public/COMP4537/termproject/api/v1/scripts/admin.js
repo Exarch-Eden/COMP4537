@@ -101,7 +101,7 @@ const renderUri = () => {
 };
 
 const getHeader = (colNum) => {
-  if (typeof colNum !== 1)
+  if (typeof colNum !== "number")
     throw new Error("Parameter colNum is not of type number");
   if (colNum > 3 || colNum < 0)
     throw new Error("Parameter colNum value must be between 0-3");
