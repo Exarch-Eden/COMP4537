@@ -55,16 +55,77 @@ const renderUri = () => {
 };
 
 const getUri = async () => {
-  const uriData = [];
+  let uriData = [];
 
   const url =
     crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
   console.log(`link: \n${url}`);
 
-  const response = new Promise((resolve) => {
+  // const response = new Promise((resolve) => {
+  //   const xhttp = new XMLHttpRequest();
+
+  //   xhttp.open(GET, url, true);
+
+  //   xhttp.setRequestHeader("Content-Type", "application/json");
+
+  //   // (async () => {
+  //   // xhttp.send();
+
+  //   xhttp.onload = () => {
+  //     const status = xhttp.status;
+  //     console.log(`status: ${status}`);
+  //     if (status === STATUS_200) {
+  //       resolve(xhttp.responseText);
+  //     } else {
+  //       console.log("An error occured while attempting to read data");
+  //       reject(status);
+  //     }
+  //   };
+
+  //   // xhttp.onerror = () => {};
+
+  //   xhttp.send();
+
+  //   // xhttp.onreadystatechange = () => {
+  //   //   // try {
+  //   //   //   // while not ready and status is not OK (200)
+  //   //   //   while (!(xhttp.readyState === 4 && xhttp.status === STATUS_200)) {
+  //   //   //     console.log("not finished reading data");
+  //   //   //   }
+
+  //   //   //   console.log("await");
+
+  //   //   if (xhttp.readyState === 4 && xhttp.status === 200) {
+  //   //     console.log("finished reading data");
+
+  //   //     console.log(`responseText: \n${xhttp.responseText}`);
+  //   //   } else {
+  //   //     console.log("not finished reading data");
+  //   //   }
+  //   //   // } catch (err) {
+  //   //   //   console.log("An error occured while attempting to read data");
+  //   //   //   console.log(err);
+  //   //   // }
+  //   // };
+  // });
+
+  console.log("awaiting uriData");
+  uriData = await makeRequest(GET, url);
+
+  console.log(`uriData: \n${uriData}`);
+
+  // })();
+
+  console.log("end of getUri()");
+
+  return uriData;
+};
+
+const makeRequest = (method, url) => {
+  return new Promise((resolve, reject) => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open(GET, url, true);
+    xhttp.open(method, url, true);
 
     xhttp.setRequestHeader("Content-Type", "application/json");
 
@@ -108,15 +169,4 @@ const getUri = async () => {
     //   // }
     // };
   });
-
-  console.log("awaiting uriData");
-  uriData = await response();
-
-  console.log(`uriData: \n${uriData}`);
-
-  // })();
-
-  console.log("end of getUri()");
-
-  return uriData;
-};
+}
