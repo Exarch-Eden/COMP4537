@@ -46,20 +46,14 @@ const getQuotes = async () => {
   const originalUrl = crossOriginPrefix + baseAPILink + apiQuotes + apiKeySuffix + quoteIdSuffix;
 
   console.log("awaiting quotesData");
-  quoteIds.map((curIndex) => {
-    console.log(`making request, index: ${curIndex}`);
-    const urlToSend = originalUrl + curIndex;
+  
+  for (let index = 0; index < numQuotes.length; index++) {
+    const curQuoteId = numQuotes[index];
+    console.log(`making request, index: ${curQuoteId}`);
+    const urlToSend = originalUrl + curQuoteId;
     console.log(`link: \n${urlToSend}`);
-    quotesData[curIndex] = await makeRequest(GET, urlToSend);
-  });
-
-  // OLD CODE:
-  // for (let index = 1; index < numQuotes; index++) {
-  //   console.log(`making request, index: ${index}`);
-  //   const urlToSend = originalUrl + index;
-  //   console.log(`link: \n${urlToSend}`);
-  //   quotesData[index] = await makeRequest(GET, urlToSend);
-  // };
+    quotesData[index] = await makeRequest(GET, urlToSend);
+  };
 
   return quotesData;
 };
