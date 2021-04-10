@@ -1,35 +1,5 @@
-// api key
-const apiKey = "2621c1e4-6c9a-4d96-b9f6-8d734c115da2";
-
-// CORS proxy link
-const crossOriginPrefix = "https://limitless-depths-77398.herokuapp.com/";
-
-// the base link for API calls
-const baseAPILink = "https://billyvunguyen.com/AnimeAway/v1/";
-
-// link suffixes for API related calls
-const apiUriStatus = "uri_status";
-
 // id constants
 const uriStatusContainerId = "uriStatusContainer";
-
-// DOM create element tag constants
-const CREATE_UL = "ul";
-const CREATE_LI = "li";
-const CREATE_TABLE = "table";
-const CREATE_TR = "tr"; // table row
-const CREATE_TH = "th"; // table header
-const CREATE_TD = "td"; // table data
-
-// http method constants
-const GET = "GET";
-const POST = "POST";
-const PUT = "PUT";
-const UPDATE = "UPDATE";
-const DELETE = "DELETE";
-
-// status code constants
-const STATUS_200 = 200;
 
 // the maximum possible number of URIs
 const MAX_URIS = 10;
@@ -40,6 +10,9 @@ window.onload = () => {
   renderUri();
 };
 
+/**
+ * Renders the received URI status data.
+ */
 const renderUri = async () => {
   // container for the uri table
   const uriContainer = document.getElementById(uriStatusContainerId);
@@ -147,52 +120,3 @@ const getUri = async () => {
   return uriData;
 };
 
-const makeRequest = (method, url) => {
-  return new Promise((resolve, reject) => {
-    const xhttp = new XMLHttpRequest();
-
-    xhttp.open(method, url, true);
-
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.setRequestHeader(
-      "Authorization",
-      "Bearer 2621c1e4-6c9a-4d96-b9f6-8d734c115da2"
-    );
-
-    xhttp.onload = () => {
-      const status = xhttp.status;
-      console.log(`status: ${status}`);
-      if (status === STATUS_200) {
-        resolve(JSON.parse(xhttp.responseText));
-      } else {
-        console.log("An error occured while attempting to read data");
-        reject(status);
-      }
-    };
-
-    xhttp.send();
-
-    // OLD CODE --------------------------------------------
-    // xhttp.onreadystatechange = () => {
-    //   // try {
-    //   //   // while not ready and status is not OK (200)
-    //   //   while (!(xhttp.readyState === 4 && xhttp.status === STATUS_200)) {
-    //   //     console.log("not finished reading data");
-    //   //   }
-
-    //   //   console.log("await");
-
-    //   if (xhttp.readyState === 4 && xhttp.status === 200) {
-    //     console.log("finished reading data");
-
-    //     console.log(`responseText: \n${xhttp.responseText}`);
-    //   } else {
-    //     console.log("not finished reading data");
-    //   }
-    //   // } catch (err) {
-    //   //   console.log("An error occured while attempting to read data");
-    //   //   console.log(err);
-    //   // }
-    // };
-  });
-};
