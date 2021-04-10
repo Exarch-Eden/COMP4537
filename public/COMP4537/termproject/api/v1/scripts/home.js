@@ -3,7 +3,7 @@ const quotesContainerId = "quotesContainer";
 
 window.onload = () => {
   renderQuotes();
-}
+};
 
 /**
  * Renders the received quotes data.
@@ -18,16 +18,30 @@ const renderQuotes = async () => {
   console.log("quotesData: ", quotesData);
 
   // put data into quotes container
-  quotesData.map((curQuote, index) => {
-    const individualQuoteContainer = document.createElement(CREATE_P);
+  quotesData.map((curQuoteArr) => {
+    curQuoteArr.map((curQuoteData) => {
+      // paragraph element to hold the quote data
+      const individualQuoteContainer = document.createElement(CREATE_P);
 
-    individualQuoteContainer.innerText = curQuote;
+      console.log("curQuoteData", curQuoteData);
 
-    quotesContainer.appendChild(individualQuoteContainer);
+      // extracted quote data
+      const quoteDetails = curQuoteData.details; // actual quote
+      const quoteBy = curQuoteData.quote_by; // quote said by whom
+      const quoteFrom = curQuoteData.quote_from; // media source of quote
+
+      individualQuoteContainer.innerText = `"${quoteDetails}" -${quoteBy}, ${quoteFrom}`;
+
+      quotesContainer.appendChild(individualQuoteContainer);
+    });
   });
+};
 
-}
-
+/**
+ * Makes a request to extract quotes from the server.
+ *
+ * @returns array of quote data objects
+ */
 const getQuotes = async () => {
   let quotesData = [];
 
@@ -38,22 +52,29 @@ const getQuotes = async () => {
   const NUM_QUOTES = 1;
 
   // add quote ids to read from to a local array
-  for (let index = 1; index < NUM_QUOTES; index++) {
-    quoteIds[quoteIds.length] = i;
+  for (let index = 0; index < NUM_QUOTES; index++) {
+    quoteIds.push(index + 1);
   }
 
+  console.log("quoteIds: ");
+  console.log(quoteIds);
+
   // append quote_id query parameter
-  const originalUrl = crossOriginPrefix + baseAPILink + apiQuotes + apiKeySuffix + quoteIdSuffix;
+  const originalUrl =
+    crossOriginPrefix + baseAPILink + apiQuotes + apiKeySuffix + quoteIdSuffix;
+
+  console.log("originalUrl: ", originalUrl);
 
   console.log("awaiting quotesData");
-  
+
   for (let index = 0; index < NUM_QUOTES; index++) {
     const curQuoteId = quoteIds[index];
+    console.log("curQuoteId: ", quoteIds[index]);
     console.log(`making request, index: ${curQuoteId}`);
     const urlToSend = originalUrl + curQuoteId;
     console.log(`link: \n${urlToSend}`);
     quotesData[index] = await makeRequest(GET, urlToSend);
-  };
+  }
 
   return quotesData;
 };
