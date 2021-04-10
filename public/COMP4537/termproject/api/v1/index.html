@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeAway Index</title>
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
+    This is the index page of AnimeAway.
+
+    <div id="nonAdminButtonsContainer">
+      <button id="goToAnimePageButton" type="button" onclick="goToAnime()">
+        Go To Anime Page
+      </button>
+      <button id="goToMangaPageButton" type="button" onclick="goToManga()">
+        Go To Manga and Comics Page
+      </button>
+    </div>
+
+    <div id="adminButtonsContainer">
+      <p>For admins:</p>
+      <button id="goToAdminPageButton" type="button" onclick="goToAdmin()">
+        Go To Admin Page
+      </button>
+      <button id="goToDocPageButton" type="button" onclick="goToDocs()">
+        Go To API Documentation
+      </button>
+    </div>
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
+
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

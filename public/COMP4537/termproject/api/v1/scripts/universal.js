@@ -37,58 +37,60 @@ const DELETE = "DELETE";
 
 /**
  * Make an API request to the server.
- * 
+ *
  * @param {*} method the http method to execute
  * @param {*} url the url to make an API request to
  * @returns a promise that resolves with database data
  */
 const makeRequest = (method, url) => {
-    return new Promise((resolve, reject) => {
-      const xhttp = new XMLHttpRequest();
-  
-      xhttp.open(method, url, true);
-  
-      xhttp.setRequestHeader("Content-Type", "application/json");
-      xhttp.setRequestHeader(
-        "Authorization",
-        `Bearer ${apiKey}`
-      );
-  
-      xhttp.onload = () => {
-        const status = xhttp.status;
-        console.log(`status: ${status}`);
-        if (status === STATUS_200) {
-          resolve(JSON.parse(xhttp.responseText));
-        } else {
-          console.log("An error occured while attempting to read data");
-          reject(status);
-        }
-      };
-  
-      xhttp.send();
-  
-      // OLD CODE --------------------------------------------
-      // xhttp.onreadystatechange = () => {
-      //   // try {
-      //   //   // while not ready and status is not OK (200)
-      //   //   while (!(xhttp.readyState === 4 && xhttp.status === STATUS_200)) {
-      //   //     console.log("not finished reading data");
-      //   //   }
-  
-      //   //   console.log("await");
-  
-      //   if (xhttp.readyState === 4 && xhttp.status === 200) {
-      //     console.log("finished reading data");
-  
-      //     console.log(`responseText: \n${xhttp.responseText}`);
-      //   } else {
-      //     console.log("not finished reading data");
-      //   }
-      //   // } catch (err) {
-      //   //   console.log("An error occured while attempting to read data");
-      //   //   console.log(err);
-      //   // }
-      // };
-    });
-  };
-  
+  return new Promise((resolve, reject) => {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open(method, url, true);
+
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("Authorization", `Bearer ${apiKey}`);
+
+    xhttp.onload = () => {
+      const status = xhttp.status;
+      console.log(`status: ${status}`);
+      if (status === STATUS_200) {
+        resolve(JSON.parse(xhttp.responseText));
+      } else {
+        console.log("An error occured while attempting to read data");
+        reject(status);
+      }
+    };
+
+    xhttp.send();
+
+    // OLD CODE --------------------------------------------
+    // xhttp.onreadystatechange = () => {
+    //   // try {
+    //   //   // while not ready and status is not OK (200)
+    //   //   while (!(xhttp.readyState === 4 && xhttp.status === STATUS_200)) {
+    //   //     console.log("not finished reading data");
+    //   //   }
+
+    //   //   console.log("await");
+
+    //   if (xhttp.readyState === 4 && xhttp.status === 200) {
+    //     console.log("finished reading data");
+
+    //     console.log(`responseText: \n${xhttp.responseText}`);
+    //   } else {
+    //     console.log("not finished reading data");
+    //   }
+    //   // } catch (err) {
+    //   //   console.log("An error occured while attempting to read data");
+    //   //   console.log(err);
+    //   // }
+    // };
+  });
+};
+
+
+const backToIndex = () => {
+  //   window.location.href = `${assignmentRootDirectory}index.html`;
+  window.location.href = "./index.html";
+}
