@@ -28,7 +28,7 @@ const renderQuotes = async () => {
 
 }
 
-const getQuote = async () => {
+const getQuotes = async () => {
   let quotesData = [];
 
   const apiKeySuffix = `?api_key=${apiKey}`;
