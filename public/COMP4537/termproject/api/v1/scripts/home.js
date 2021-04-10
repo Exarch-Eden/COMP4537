@@ -48,7 +48,7 @@ const getQuotes = async () => {
   console.log("awaiting quotesData");
   
   for (let index = 0; index < NUM_QUOTES; index++) {
-    const curQuoteId = NUM_QUOTES[index];
+    const curQuoteId = quoteIds[index];
     console.log(`making request, index: ${curQuoteId}`);
     const urlToSend = originalUrl + curQuoteId;
     console.log(`link: \n${urlToSend}`);
