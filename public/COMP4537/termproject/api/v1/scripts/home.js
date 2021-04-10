@@ -46,12 +46,12 @@ const getQuote = async () => {
   const originalUrl = crossOriginPrefix + baseAPILink + apiQuotes + apiKeySuffix + quoteIdSuffix;
 
   console.log("awaiting quotesData");
-  quoteIds.forEach((index) => {
+  for (let index = 0; index < numQuotes; index++) {
     console.log(`making request, index: ${index}`);
     const urlToSend = originalUrl + index;
     console.log(`link: \n${urlToSend}`);
     quotesData[index] = await makeRequest(GET, urlToSend);
-  });
+  };
 
   return quotesData;
 };
