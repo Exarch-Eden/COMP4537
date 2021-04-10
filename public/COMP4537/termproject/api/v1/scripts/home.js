@@ -1,9 +1,9 @@
 // id constants
 const quotesContainerId = "quotesContainer";
 
-window.onload = () => {
-  renderQuotes();
-};
+// window.onload = () => {
+//   renderQuotes();
+// };
 
 /**
  * Renders the received quotes data.
