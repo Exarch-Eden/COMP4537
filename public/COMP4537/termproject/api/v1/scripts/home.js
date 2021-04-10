@@ -35,10 +35,10 @@ const getQuotes = async () => {
   const quoteIdSuffix = `&quote_id=`;
 
   const quoteIds = [];
-  const numQuotes = 1;
+  const NUM_QUOTES = 1;
 
   // add quote ids to read from to a local array
-  for (let index = 1; index < numQuotes; index++) {
+  for (let index = 1; index < NUM_QUOTES; index++) {
     quoteIds[quoteIds.length] = i;
   }
 
@@ -47,8 +47,8 @@ const getQuotes = async () => {
 
   console.log("awaiting quotesData");
   
-  for (let index = 0; index < numQuotes.length; index++) {
-    const curQuoteId = numQuotes[index];
+  for (let index = 0; index < NUM_QUOTES; index++) {
+    const curQuoteId = NUM_QUOTES[index];
     console.log(`making request, index: ${curQuoteId}`);
     const urlToSend = originalUrl + curQuoteId;
     console.log(`link: \n${urlToSend}`);
