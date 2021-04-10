@@ -154,6 +154,10 @@ const makeRequest = (method, url) => {
     xhttp.open(method, url, true);
 
     xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader(
+      "Authorization",
+      "Bearer 2621c1e4-6c9a-4d96-b9f6-8d734c115da2"
+    );
 
     xhttp.onload = () => {
       const status = xhttp.status;
