@@ -6,8 +6,10 @@ const MAX_URIS = 10;
 // number of columns in a URI status
 const NUM_COLUMNS_URI = 4;
 
-window.onload = () => {
-  renderUri();
+window.onload = async () => {
+  await renderUri();
+  // await getAnime();
+  // await getManga();
 };
 
 /**
@@ -120,3 +122,44 @@ const getUri = async () => {
   return uriData;
 };
 
+const getAnime = async () => {
+  let animeData = [];
+
+  const apiKeySuffix = `?api_key=${apiKey}`;
+  const animeSuffix = `&anime_cartoon`;
+
+  const url =
+    crossOriginPrefix + baseAPILink + apiAnimeCartoon + apiKeySuffix + animeSuffix;
+  console.log(`link: \n${url}`);
+
+  console.log("awaiting animeData");
+  animeData = await makeRequest(GET, url);
+
+  console.log(`animeData:`);
+  console.log(animeData);
+
+  console.log("end of getAnime()");
+
+  return animeData;
+};
+
+const getManga = async () => {
+  let mangaData = [];
+
+  const apiKeySuffix = `?api_key=${apiKey}`;
+  const mangaSuffix = `&manga_comic`;
+
+  const url =
+    crossOriginPrefix + baseAPILink + apiMangaComic + apiKeySuffix + mangaSuffix;
+  console.log(`link: \n${url}`);
+
+  console.log("awaiting mangaData");
+  mangaData = await makeRequest(GET, url);
+
+  console.log(`mangaData:`);
+  console.log(mangaData);
+
+  console.log("end of getManga()");
+
+  return mangaData;
+};

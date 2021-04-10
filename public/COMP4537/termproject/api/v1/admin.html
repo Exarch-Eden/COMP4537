@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Term Project Admin</title>
-</head>
-<body>
-    This is admin page.
+  </head>
+  <body>
+    <p>This is admin page.</p>
 
     <div id="uriStatusContainer"><p>URI Status List:</p></div>
-    <button id="backToIndexButton" type="button" onclick="backToIndex()">Back To Index</button>
-    
+
+    <!-- <div id="postContainer">
+      <div id="postAnimeContainer">
+        <h>Add an anime to database:</h>
+        <form id="addAnimeForm">
+          <input id="animeNameInput" form="addAnimeForm" />
+          <input id="anime" form="addAnimeForm" />
+          <input id="animeBody" form="addAnimeForm" />
+          <input id="animeBody" form="addAnimeForm" />
+          <button
+            id="addAnimeButton"
+            type="button"
+            onclick="addAnime()"
+          >
+            Add Anime
+          </button>
+        </form>
+      </div>
+    </div> -->
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
+
     <script src="./scripts/admin.js"></script>
     <script src="./scripts/universal.js"></script>
-</body>
+  </body>
 </html>
