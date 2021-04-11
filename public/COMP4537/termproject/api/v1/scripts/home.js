@@ -15,24 +15,45 @@ const renderQuotes = async () => {
   // execute GET method to grab the quotes from database
   const quotesData = await getQuotes();
 
+  console.log("quotesData.length: ", quotesData.length);
+
   console.log("quotesData: ", quotesData);
+
+  const randomIndex = Math.floor(Math.random() * quotesData.length);
+  console.log("randomIndex: ", randomIndex);
+
+  // paragraph element to hold the quote data
+  const individualQuoteContainer = document.createElement(CREATE_P);
+
+  const curQuoteData = quotesData[randomIndex][0];
+
+  console.log("curQuotesData: \n", curQuoteData);
+
+  // extracted quote data
+  const quoteDetails = curQuoteData.details; // actual quote
+  const quoteBy = curQuoteData.quote_by; // quote said by whom
+  const quoteFrom = curQuoteData.quote_from; // media source of quote
+
+  individualQuoteContainer.innerText = `"${quoteDetails}" -${quoteBy}, ${quoteFrom}`;
+
+  quotesContainer.appendChild(individualQuoteContainer);
 
   // put data into quotes container
   quotesData.map((curQuoteArr) => {
     curQuoteArr.map((curQuoteData) => {
-      // paragraph element to hold the quote data
-      const individualQuoteContainer = document.createElement(CREATE_P);
+      // // paragraph element to hold the quote data
+      // const individualQuoteContainer = document.createElement(CREATE_P);
 
-      console.log("curQuoteData", curQuoteData);
+      // console.log("curQuoteData", curQuoteData);
 
-      // extracted quote data
-      const quoteDetails = curQuoteData.details; // actual quote
-      const quoteBy = curQuoteData.quote_by; // quote said by whom
-      const quoteFrom = curQuoteData.quote_from; // media source of quote
+      // // extracted quote data
+      // const quoteDetails = curQuoteData.details; // actual quote
+      // const quoteBy = curQuoteData.quote_by; // quote said by whom
+      // const quoteFrom = curQuoteData.quote_from; // media source of quote
 
-      individualQuoteContainer.innerText = `"${quoteDetails}" -${quoteBy}, ${quoteFrom}`;
+      // individualQuoteContainer.innerText = `"${quoteDetails}" -${quoteBy}, ${quoteFrom}`;
 
-      quotesContainer.appendChild(individualQuoteContainer);
+      // quotesContainer.appendChild(individualQuoteContainer);
     });
   });
 };
@@ -49,7 +70,7 @@ const getQuotes = async () => {
   const quoteIdSuffix = `?quote_id=`;
 
   const quoteIds = [];
-  const NUM_QUOTES = 1;
+  const NUM_QUOTES = 5;
 
   // add quote ids to read from to a local array
   for (let index = 0; index < NUM_QUOTES; index++) {
