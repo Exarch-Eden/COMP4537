@@ -11,10 +11,14 @@
 
     <div id="postContainer">
         <form id="addForm">
-          <input id="nameInput" form="addForm" placeholder="Name of series" />
-          <input id="commentInput" form="addForm" placeholder="Your comment"/>
-          <input id="favCharInput" form="addForm" placeholder="Your favourite character"/>
-          <input id="posterInput" form="addForm" placeholder="Your desired username"/>
+            <label>Name of series</label><br/>
+            <input id="nameInput" form="addForm" placeholder="Name of series" />
+            <label>Your comment</label><br/>
+            <textarea id="commentInput" name="comment" form="addForm" placeholder="Your comment"></textarea><br/>
+            <label>Your favourite character</label><br/>
+            <input id="favCharInput" form="addForm" placeholder="Your favourite character"/>
+            <label>Your desired username</label><br/>
+            <input id="posterInput" form="addForm" placeholder="Your desired username"/>
           <p>Select One of the following options:</p>
           <input id="animeChoice" name="postType" form="addForm" type="radio" />
           <label for="animeChoice">Anime</label><br/>
