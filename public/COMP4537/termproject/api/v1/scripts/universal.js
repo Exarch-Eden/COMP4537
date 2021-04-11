@@ -103,5 +103,6 @@ const makeRequest = (method, url) => {
 
 const backToIndex = () => {
   //   window.location.href = `${assignmentRootDirectory}index.html`;
-  window.location.href = "./index.html";
+  // window.location.href = "./index.html";
+  window.location.href = "./anime.html";
 };

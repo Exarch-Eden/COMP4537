@@ -13,7 +13,7 @@ div {
 
 #animePostsContainer,
 #mangaPostsContainer {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 #animePostsContainer > div,

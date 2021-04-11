@@ -54,13 +54,15 @@ const postUserLogin = async (loginData) => {
     passwordQuery;
   console.log(`link: \n${url}`);
 
+  let responseValid = true;
+
   console.log("sending POST request");
   await makeRequest(POST, url).catch((error) => {
     console.log("makeRequest error: \n", error);
+    responseValid = false;
     alert("Invalid email or password");
-    return;
   });
   console.log("server responded");
 
-  goToAdmin();
+  if (responseValid) goToAdmin();
 };
