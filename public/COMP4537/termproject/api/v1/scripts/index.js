@@ -14,7 +14,8 @@ const goToManga = () => {
 }
 
 const goToAdmin = () => {
-  window.location.href = "./admin.html";
+  // window.location.href = "./admin.html";
+  window.location.href = "./login.html";
 }
 
 const goToDocs = () => {

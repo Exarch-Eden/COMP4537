@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Term Project Admin</title>
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div id="loginContainer">
+      <form id="loginForm">
+        <label>Email</label><br />
+        <input id="emailInput" form="addForm" placeholder="Email" />
+        <label>Password</label><br />
+        <input
+          id="passwordInput"
+          type="password"
+          form="addForm"
+          placeholder="Password"
+        />
+        <button id="loginButton" type="button">Login</button>
+      </form>
+    </div>
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
+
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/universal.js"></script>
+  </body>
+</html>

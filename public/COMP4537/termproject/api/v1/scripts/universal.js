@@ -13,6 +13,7 @@ const apiQuotes = "quote";
 const apiMangaComic = "manga_comic";
 const apiAnimeCartoon = "anime_cartoon";
 const apiUserAdmin = "user_admin";
+const apiLogin = "login";
 
 // status code constants
 const STATUS_200 = 200;
@@ -62,11 +63,11 @@ const makeRequest = (method, url) => {
           const responseText = xhttp.responseText;
           console.log("xhttp Response Text:\n", responseText);
 
-          resolve(responseText.length > 0 ? JSON.parse(responseText) : null);
+          resolve(responseText.length > 0 ? JSON.parse(responseText) : status);
         } catch (error) {
           console.log("Error resolving responseText:\n", error);
         }
-        resolve(null);
+        resolve(status);
       } else {
         console.log("An error occured while attempting to read data");
         reject(status);

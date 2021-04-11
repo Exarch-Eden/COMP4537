@@ -1,0 +1,17 @@
+html, body {
+    text-align: center;
+}
+
+#loginContainer {
+    text-align: center;
+}
+
+#loginForm > input {
+    display: block !important;
+    margin: auto;
+}
+
+#loginForm > input, #loginForm > label, #backToIndexButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
