@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeAway Edit Post</title>
+    <link rel="stylesheet" href="./css/create.css" />
+  </head>
+  <body>
+    <p>This is the edit page.</p>
+
+    <div id="postContainer">
+        <form id="addForm">
+          <label>Name of series</label><br/>
+          <input id="nameInput" form="addForm" placeholder="Name of series" />
+          <label>Your comment</label><br/>
+          <textarea id="commentInput" name="comment" form="addForm" placeholder="Your comment"></textarea><br/>
+          <label>Your favourite character</label><br/>
+          <input id="favCharInput" form="addForm" placeholder="Your favourite character"/>
+          <label>Your desired username</label><br/>
+          <input id="posterInput" form="addForm" placeholder="Your desired username"/>
+          <button id="updatePostButton" type="button">
+            Update Post
+          </button>
+          <button id="deletePostButton" type="button">
+            Delete Post
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
+
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/edit.js"></script>
+    <script src="./scripts/universal.js"></script>
+  </body>
+</html>

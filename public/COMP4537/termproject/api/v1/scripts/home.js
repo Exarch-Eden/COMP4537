@@ -82,3 +82,11 @@ const getQuotes = async () => {
 const goToCreatePost = () => {
   window.location.href = "./create.html";
 }
+
+const goToEdit = (postData) => {
+  // store postData in local storage
+  localStorage.setItem("postData", JSON.stringify(postData));
+
+  // go to edit page
+  window.location.href = "./edit.html";
+};

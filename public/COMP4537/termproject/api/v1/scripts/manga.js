@@ -19,7 +19,7 @@ const renderMangaPosts = async () => {
   console.log("mangaData: ", mangaData);
 
   // put data into manga posts container
-  mangaData.map((curMangaPost) => {
+  mangaData.map((curMangaPost, index) => {
     console.log("curMangaPost: \n", curMangaPost);
 
     // div container to hold all data for this post
@@ -30,6 +30,20 @@ const renderMangaPosts = async () => {
     const comment = curMangaPost.comment;
     const favChar = curMangaPost.fav_char;
     const poster = curMangaPost.posted_by;
+
+    // object to potentially pass to Edit page if ever needed
+    const mangaPostData = {
+      ...curMangaPost,
+      is_anime: false,
+      // id: animeId,
+      // name: animeName,
+      // comment: comment,
+      // fav_char: favChar,
+      // posted_by: poster,
+      // is_anime: true,
+    };
+
+    console.log("mangaPostData: \n", mangaPostData);
 
     // containers to each hold a piece of information from the extracted data
     const mangaNameContainer = document.createElement(CREATE_P);
@@ -43,11 +57,23 @@ const renderMangaPosts = async () => {
     favCharContainer.innerText = `Favourite Character: ${favChar}`;
     posterContainer.innerText = `Posted by ${poster}`;
 
+    // button to go to Edit page and edit post
+    const editPostButton = document.createElement(CREATE_BUTTON);
+    editPostButton.id = `editPostButton${index}`;
+    editPostButton.className = "editButton";
+    editPostButton.innerHTML = "Edit Post";
+    editPostButton.addEventListener("click", () => {
+      goToEdit(mangaPostData);
+    });
+
     // append separate information containers to post container
     individualPostContainer.appendChild(mangaNameContainer);
     individualPostContainer.appendChild(commentContainer);
     individualPostContainer.appendChild(favCharContainer);
     individualPostContainer.appendChild(posterContainer);
+
+    // append button
+    individualPostContainer.appendChild(editPostButton);
 
     // append current post container to all posts container
     mangaPostsContainer.appendChild(individualPostContainer);

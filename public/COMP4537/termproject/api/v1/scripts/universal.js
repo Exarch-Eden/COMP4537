@@ -21,6 +21,7 @@ const STATUS_201 = 201;
 // DOM create element tag constants
 const CREATE_DIV = "div";
 const CREATE_P = "p";
+const CREATE_BUTTON = "button";
 
 const CREATE_UL = "ul";
 const CREATE_LI = "li";
