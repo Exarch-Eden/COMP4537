@@ -10,10 +10,10 @@ window.onload = () => {
  * Renders the received quotes data.
  */
 const renderAnimePosts = async () => {
-  // container for the quotes
+  // container for the anime posts
   const animePostsContainer = document.getElementById(animePostsContainerId);
 
-  // execute GET method to grab the quotes from database
+  // execute GET method to grab the anime data from database
   const animeData = await getAnime();
 
   console.log("animeData: ", animeData);
