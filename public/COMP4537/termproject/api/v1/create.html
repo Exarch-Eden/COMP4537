@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeAway Create Post</title>
+    <link rel="stylesheet" href="./css/create.css" />
+  </head>
+  <body>
+    <p>This is the create page.</p>
+
+    <div id="postContainer">
+        <form id="addForm">
+          <input id="nameInput" form="addForm" placeholder="Name of series" />
+          <input id="commentInput" form="addForm" placeholder="Your comment"/>
+          <input id="favCharInput" form="addForm" placeholder="Your favourite character"/>
+          <input id="posterInput" form="addForm" placeholder="Your desired username"/>
+          <p>Select One of the following options:</p>
+          <input id="animeChoice" name="postType" form="addForm" type="radio" />
+          <label for="animeChoice">Anime</label><br/>
+          <input id="mangaChoice" name="postType" form="addForm" type="radio" />
+          <label for="mangaChoice">Manga</label><br/>
+          <!-- <button id="addAnimePost" type="button" onclick="createAnimePost()">
+            Add Anime Post
+          </button>
+          <button id="addMangaPost" type="button" onclick="createMangaPost()">
+            Add Manga Post
+          </button> -->
+          <button id="createPostButton" type="button">
+            Create Post
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
+
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/create.js"></script>
+    <script src="./scripts/universal.js"></script>
+  </body>
+</html>

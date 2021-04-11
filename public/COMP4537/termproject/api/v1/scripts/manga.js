@@ -40,8 +40,8 @@ const renderMangaPosts = async () => {
     // add information from extracted data to containers
     mangaNameContainer.innerText = mangaName;
     commentContainer.innerText = comment;
-    favCharContainer.innerText = favChar;
-    posterContainer.innerText = poster;
+    favCharContainer.innerText = `Favourite Character: ${favChar}`;
+    posterContainer.innerText = `Posted by ${poster}`;
 
     // append separate information containers to post container
     individualPostContainer.appendChild(mangaNameContainer);
@@ -58,10 +58,10 @@ const getManga = async () => {
   let mangaData = [];
 
   const apiKeySuffix = `?api_key=${apiKey}`;
-  const mangaSuffix = `&manga_comic`;
+  const mangaSuffix = `?${apiMangaComic}`;
 
   const url =
-    crossOriginPrefix + baseAPILink + apiMangaComic + apiKeySuffix + mangaSuffix;
+    crossOriginPrefix + baseAPILink + apiMangaComic;
   console.log(`link: \n${url}`);
 
   console.log("awaiting mangaData");

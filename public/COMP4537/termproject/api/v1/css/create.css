@@ -1,0 +1,25 @@
+#postContainer {
+    border: 1px solid green;
+}
+
+#addForm {
+    margin-left: 10px;
+}
+
+#addForm > input {
+    display: block;
+    margin-top: 10px;
+}
+
+#addForm > input, #addForm:last-child {
+    margin-bottom: 10px;
+}
+
+#backToIndexButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#animeChoice, #mangaChoice {
+    display: inline-block !important;
+}

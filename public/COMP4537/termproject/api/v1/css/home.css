@@ -1,5 +1,32 @@
-#quotesContainer {
-    border: 1px solid black;
-    padding: 5px;
+div {
+  padding: 5px;
 }
 
+#quotesContainer {
+  border: 1px solid black;
+}
+
+#createPostButton {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#animePostsContainer,
+#mangaPostsContainer {
+  border: 1px solid blue;
+}
+
+#animePostsContainer > div,
+#mangaPostsContainer > div {
+  border: 1px solid green;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#animePostsContainer:first-child,
+#animePostsContainer:last-child,
+#mangaPostsContainer:first-child,
+#mangaPostsContainer:last-child {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

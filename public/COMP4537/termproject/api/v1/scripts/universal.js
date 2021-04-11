@@ -16,6 +16,7 @@ const apiUserAdmin = "user_admin";
 
 // status code constants
 const STATUS_200 = 200;
+const STATUS_201 = 201;
 
 // DOM create element tag constants
 const CREATE_DIV = "div";
@@ -53,9 +54,18 @@ const makeRequest = (method, url) => {
 
     xhttp.onload = () => {
       const status = xhttp.status;
+
       console.log(`status: ${status}`);
-      if (status === STATUS_200) {
-        resolve(JSON.parse(xhttp.responseText));
+      if (status === STATUS_200 || status === STATUS_201) {
+        try {
+          const responseText = xhttp.responseText;
+          console.log("xhttp Response Text:\n", responseText);
+
+          resolve(responseText.length > 0 ? JSON.parse(responseText) : null);
+        } catch (error) {
+          console.log("Error resolving responseText:\n", error);
+        }
+        resolve(null);
       } else {
         console.log("An error occured while attempting to read data");
         reject(status);
@@ -89,8 +99,7 @@ const makeRequest = (method, url) => {
   });
 };
 
-
 const backToIndex = () => {
   //   window.location.href = `${assignmentRootDirectory}index.html`;
   window.location.href = "./index.html";
-}
+};

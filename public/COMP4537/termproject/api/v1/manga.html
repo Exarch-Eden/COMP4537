@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AnimeAway Manga and Comics</title>
-    <link rel="stylesheet" href="./css/home.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
     <p>This is the Manga and Comics page.</p>
 
     <div id="quotesContainer">
-        <h>Random Quote For You:</h>
+      <h>Random Quote For You:</h>
     </div>
 
-    <div id="mangaPostsContainer">
+    <button id="createPostButton" type="button" onclick="goToCreatePost()">
+      Create Post
+    </button>
 
-    </div>
+    <div id="mangaPostsContainer"></div>
 
-
-    <button id="backToIndexButton" type="button" onclick="backToIndex()">Back To Index</button>
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
 
     <script src="./scripts/home.js"></script>
     <script src="./scripts/manga.js"></script>
     <script src="./scripts/universal.js"></script>
-</body>
+  </body>
 </html>

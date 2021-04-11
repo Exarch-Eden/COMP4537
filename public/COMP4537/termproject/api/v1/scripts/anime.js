@@ -26,6 +26,7 @@ const renderAnimePosts = async () => {
     const individualPostContainer = document.createElement(CREATE_DIV);
 
     // extracted anime post data
+    const animeId = curAnimePost.anime_id;
     const animeName = curAnimePost.anime_name;
     const comment = curAnimePost.comment;
     const favChar = curAnimePost.fav_char;
@@ -40,8 +41,8 @@ const renderAnimePosts = async () => {
     // add information from extracted data to containers
     animeNameContainer.innerText = animeName;
     commentContainer.innerText = comment;
-    favCharContainer.innerText = favChar;
-    posterContainer.innerText = poster;
+    favCharContainer.innerText = `Favourite Character: ${favChar}`;
+    posterContainer.innerText = `Posted by ${poster}`;
 
     // append separate information containers to post container
     individualPostContainer.appendChild(animeNameContainer);
@@ -59,10 +60,10 @@ const getAnime = async () => {
 
   // query parameters
   const apiKeySuffix = `?api_key=${apiKey}`;
-  const animeSuffix = `&anime_cartoon`;
+  const animeSuffix = `?${apiAnimeCartoon}`;
 
   const url =
-    crossOriginPrefix + baseAPILink + apiAnimeCartoon + apiKeySuffix + animeSuffix;
+    crossOriginPrefix + baseAPILink + apiAnimeCartoon;
   console.log(`link: \n${url}`);
 
   console.log("awaiting animeData");

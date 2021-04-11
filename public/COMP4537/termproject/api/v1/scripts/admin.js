@@ -107,8 +107,10 @@ const getHeader = (colNum) => {
 const getUri = async () => {
   let uriData = [];
 
+  const apiKeySuffix = `?api_key=${apiKey}`
+
   const url =
-    crossOriginPrefix + baseAPILink + apiUriStatus + `?api_key=${apiKey}`;
+    crossOriginPrefix + baseAPILink + apiUriStatus;
   console.log(`link: \n${url}`);
 
   console.log("awaiting uriData");
@@ -129,7 +131,7 @@ const getAnime = async () => {
   const animeSuffix = `&anime_cartoon`;
 
   const url =
-    crossOriginPrefix + baseAPILink + apiAnimeCartoon + apiKeySuffix + animeSuffix;
+    crossOriginPrefix + baseAPILink + apiAnimeCartoon;
   console.log(`link: \n${url}`);
 
   console.log("awaiting animeData");
@@ -150,7 +152,7 @@ const getManga = async () => {
   const mangaSuffix = `&manga_comic`;
 
   const url =
-    crossOriginPrefix + baseAPILink + apiMangaComic + apiKeySuffix + mangaSuffix;
+    crossOriginPrefix + baseAPILink + apiMangaComic;
   console.log(`link: \n${url}`);
 
   console.log("awaiting mangaData");

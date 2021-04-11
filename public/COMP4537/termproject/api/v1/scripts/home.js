@@ -46,7 +46,7 @@ const getQuotes = async () => {
   let quotesData = [];
 
   const apiKeySuffix = `?api_key=${apiKey}`;
-  const quoteIdSuffix = `&quote_id=`;
+  const quoteIdSuffix = `?quote_id=`;
 
   const quoteIds = [];
   const NUM_QUOTES = 1;
@@ -61,7 +61,7 @@ const getQuotes = async () => {
 
   // append quote_id query parameter
   const originalUrl =
-    crossOriginPrefix + baseAPILink + apiQuotes + apiKeySuffix + quoteIdSuffix;
+    crossOriginPrefix + baseAPILink + apiQuotes + quoteIdSuffix;
 
   console.log("originalUrl: ", originalUrl);
 
@@ -78,3 +78,7 @@ const getQuotes = async () => {
 
   return quotesData;
 };
+
+const goToCreatePost = () => {
+  window.location.href = "./create.html";
+}

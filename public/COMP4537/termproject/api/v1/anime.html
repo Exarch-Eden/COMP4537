@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AnimeAway Anime</title>
-    <link rel="stylesheet" href="./css/home.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
     <p>This is the Anime page.</p>
 
     <div id="quotesContainer">
-        <h>Random Quote For You:</h>
+      <h>Random Quote For You:</h>
     </div>
 
-    <div id="animePostsContainer">
+    <button id="createPostButton" type="button" onclick="goToCreatePost()">
+      Create Post
+    </button>
 
-    </div>
+    <div id="animePostsContainer"></div>
 
-
-    <button id="backToIndexButton" type="button" onclick="backToIndex()">Back To Index</button>
+    <button id="backToIndexButton" type="button" onclick="backToIndex()">
+      Back To Index
+    </button>
 
     <script src="./scripts/home.js"></script>
     <script src="./scripts/anime.js"></script>
     <script src="./scripts/universal.js"></script>
-</body>
+  </body>
 </html>
